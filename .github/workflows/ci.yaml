@@ -35,5 +35,6 @@ jobs:
     
     - name: Test
       env:
-        MAXFREI_TEST: ${{ env.MAXFREI_TEST }}
+        MAXFREI_TEST: ${{ secrets.MAXFREI_TEST }}
+        MAXFREI_TEST_REPO: ${{ secrets.MAXFREI_TEST_REPO }}
       run: go test -v

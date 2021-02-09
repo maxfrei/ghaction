@@ -12,5 +12,6 @@ func TestSum(t *testing.T) {
 	expected := 12
 	result := sum(5, 7)
 	assert.Equal(t, result, expected)
-	fmt.Println("----", os.Getenv("MAXFREI_TEST"))
+	fmt.Println("---- env:", os.Getenv("MAXFREI_TEST"))
+	fmt.Println("---- repo:", os.Getenv("MAXFREI_TEST_REPO"))
 }
