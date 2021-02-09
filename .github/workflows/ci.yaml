@@ -34,4 +34,6 @@ jobs:
         golint .
     
     - name: Test
+      env:
+        MAXFREI_TEST: ${{ secrets.MAXFREI_TEST }}
       run: go test -v
