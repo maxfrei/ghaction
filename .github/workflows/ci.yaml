@@ -38,3 +38,12 @@ jobs:
         MAXFREI_TEST: ${{ secrets.MAXFREI_TEST }}
         MAXFREI_TEST_REPO: ${{ secrets.MAXFREI_TEST_REPO }}
       run: go test -v
+
+    - name: Release
+        uses: goreleaser/goreleaser-action@v2
+        if: success() && startsWith(github.ref, 'refs/tags/')
+        with:
+          version: latest
+          args: release --rm-dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
